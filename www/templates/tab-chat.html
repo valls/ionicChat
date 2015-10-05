@@ -1,0 +1,18 @@
+<ion-view view-title="Chat">
+  <ion-content has-footer="true">
+    <ion-list>
+      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="message in messages" type="item-text-wrap">
+        <img ng-src="{{message.user.face}}">
+        <h2>{{message.user.name}}</h2>
+        <p>{{message.message}}</p>
+        <a class="button button-icon icon ion-pinpoint" ng-show="message.location.length > 0"></a>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+  <ion-footer-bar keyboard-attach class="item-input-inset">
+      <label class="item-input-wrapper">
+        <input type="text" placeholder="Type your message" on-return="sendMessage(); closeKeyboard()" on-focus="inputUp()" on-blur="inputDown()" />
+      </label>
+      <a class="button button-icon icon ion-paper-airplane" ng-click="sendMessage()"></a>
+  </ion-footer-bar>
+</ion-view>
